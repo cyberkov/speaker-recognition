@@ -262,12 +262,10 @@ class SpeakerRecognitionOptionsFlow(OptionsFlow):
             return self.async_create_entry(
                 title="",
                 data={
-                    CONF_BACKEND_URL: user_input[CONF_BACKEND_URL],
                     CONF_VOICE_SAMPLES: user_input.get(CONF_VOICE_SAMPLES, []),
                 },
             )
 
-        current_url = self.config_entry.data.get(CONF_BACKEND_URL, DEFAULT_BACKEND_URL)
         current_voice_samples = self.config_entry.options.get(CONF_VOICE_SAMPLES, [])
 
         voice_samples_selector = await _build_voice_samples_schema(
@@ -278,9 +276,6 @@ class SpeakerRecognitionOptionsFlow(OptionsFlow):
             step_id="main_options",
             data_schema=vol.Schema(
                 {
-                    vol.Required(
-                        CONF_BACKEND_URL, default=current_url
-                    ): selector.TextSelector(),
                     vol.Optional(
                         CONF_VOICE_SAMPLES, default=current_voice_samples
                     ): voice_samples_selector,
