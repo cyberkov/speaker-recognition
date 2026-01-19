@@ -92,14 +92,14 @@ async with SpeakerRecognitionClient("http://localhost:8099") as client:
             voice_samples=[
                 VoiceSample(
                     user="Alice",
-                    audio_input=AudioInput(
+                    audio=AudioInput(
                         audio_data="<base64-encoded-audio>",
                         sample_rate=16000
                     )
                 ),
                 VoiceSample(
                     user="Bob",
-                    audio_input=AudioInput(
+                    audio=AudioInput(
                         audio_data="<base64-encoded-audio>",
                         sample_rate=16000
                     )
@@ -119,7 +119,7 @@ curl -X POST http://localhost:8099/train \
     "voice_samples": [
       {
         "user": "Alice",
-        "audio_input": {
+        "audio": {
           "audio_data": "<base64-audio>",
           "sample_rate": 16000
         }
@@ -184,7 +184,7 @@ Train the model with voice samples.
   "voice_samples": [
     {
       "user": "string",
-      "audio_input": {
+      "audio": {
         "audio_data": "base64-string",
         "sample_rate": 16000
       }
