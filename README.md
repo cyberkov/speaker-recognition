@@ -70,7 +70,7 @@ Run the standalone service:
 ```bash
 docker run -d \
   -p 8099:8099 \
-  -v ./embeddings:/app/embeddings \
+  -v ./embeddings:/data/embeddings \
   ghcr.io/eulemitkeule/speaker-recognition:latest
 ```
 
@@ -240,7 +240,7 @@ embeddings_dir: "/share/speaker_recognition/embeddings"
 - `PORT`: Server port (default: `8099`)
 - `LOG_LEVEL`: Logging level (default: `info`)
 - `ACCESS_LOG`: Enable access logs (default: `true`)
-- `EMBEDDINGS_DIR`: Directory for storing embeddings (default: `./embeddings`)
+- `EMBEDDINGS_DIR`: Directory for storing embeddings (default: `./embeddings`, Docker default: `/data/embeddings`)
 
 ## 🛠️ Development
 
