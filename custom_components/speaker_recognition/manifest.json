@@ -8,6 +8,7 @@
   "dependencies": [
     "stt"
   ],
+  "documentation": "https://github.com/EuleMitKeule/speaker-recognition",
   "integration_type": "service",
   "iot_class": "calculated",
   "requirements": [
